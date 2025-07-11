@@ -106,11 +106,12 @@ public class LoginFrame extends javax.swing.JFrame {
         Usuario usuario = usuarioDAO.buscarUsuario(dni, pin);
 
         if (usuario != null) {
-            javax.swing.JOptionPane.showMessageDialog(this, "¡Bienvenido, " + usuario.getNombre() + "!");
-            // Aquí puedes abrir la siguiente ventana (el menú del cajero)
+            MenuPrincipalFrame menu = new MenuPrincipalFrame(usuario);
+            menu.setVisible(true);
+            this.dispose(); // Cierra el login
         } 
         else {
-        javax.swing.JOptionPane.showMessageDialog(this, "DNI o PIN incorrecto.");
+        JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
         } 
     }//GEN-LAST:event_jButton1ActionPerformed
 
